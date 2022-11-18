@@ -83,6 +83,11 @@ window.addEventListener('mousemove', (ev) => {
   mouse.y = ev.y;
 })
 
+window.addEventListener('touchmove',(ev) => {
+    mouse.x = ev.x;
+    mouse.y =ev.y;
+})
+
 window.addEventListener('resize', (ev) =>{
   canvas.width = window.innerWidth*0.96;
 canvas.height = window.innerHeight*0.96;
