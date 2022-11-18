@@ -1,7 +1,7 @@
 const canvas = document.getElementById('canvas-item');
 // console.log(canvas);
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width = window.innerWidth*0.98;
+canvas.height = window.innerHeight*0.98;
 let c = canvas.getContext('2d');
 // c.fillStyle = 'pink'
 // c.fillRect(100,100,100,100);
@@ -78,14 +78,20 @@ const mouse = {
   y: undefined
 }
 window.addEventListener('mousemove', (ev) => {
+    // console.log('mousemove element run')
   // console.log(ev.x,ev.y)
   mouse.x = ev.x;
   mouse.y = ev.y;
 })
-
 window.addEventListener('touchmove',(ev) => {
-    mouse.x = ev.x;
-    mouse.y =ev.y;
+    // console.log('touch move event');
+    mouse.x = ev.changedTouches[0].clientX;
+    mouse.y = ev.changedTouches[0].clientY;
+})
+window.addEventListener('touchend', (ev) => {
+    // console.log('touch event ended');
+    mouse.x = undefined;
+    mouse.y = undefined;
 })
 
 window.addEventListener('resize', (ev) =>{
